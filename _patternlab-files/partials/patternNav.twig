@@ -1,0 +1,60 @@
+<ul class="patterns-menu sg-nav">
+    <li class="sg-nav-"><a class="sg-acc-handle">base</a>
+        <ul class="sg-acc-panel">
+
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/blockquote">Blockquote</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/body">Body</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/button">Button</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/code">Code</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/em">Em</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/h1">Heading Level 1</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/h2">Heading Level 2</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/h3">Heading Level 3</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/h4">Heading Level 4</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/h5">Heading Level 5</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/h6">Heading Level 6</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/img">Base Image</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/label">Label</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/li">List Item</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/ol">Ordered List</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/option">Option</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/p">Paragraph</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/pre">Pre</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/select">Select</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/strong">Strong</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/table">Table</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/tbody">Table body element</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/td">Table cell</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/textarea">Textarea</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/th">Table header cell</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/thead">Table header</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/tr">Table row</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/base/ul">Unordered List</a></li>
+        </ul>
+    </li>
+    <li class="sg-nav-">
+        <a class="sg-acc-handle">components</a>
+        <ul class="sg-acc-panel">
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/components/figure-image">Figure Image</a></li>
+            <li class="sg-nav-"><a class="sg-pop" href="app/bower_components/pattern-library/patterns/components/message">Message</a></li>
+        </ul>
+    </li>
+</ul>
+
+{#<ol class="sg-nav">#}
+	{#{&#123;&#35; buckets }}#}
+		{#<li class="sg-nav-{{ bucketNameLC }}"><a class="sg-acc-handle">{{ bucketNameUC }}</a><ol class="sg-acc-panel">#}
+		{#{&#123;&#35; navItems }}#}
+			{#<li class="sg-nav-{{ sectionNameLC }}"><a class="sg-acc-handle">{{ sectionNameUC }}</a><ol class="sg-acc-panel">#}
+			{#{&#123;&#35; navSubItems }}#}
+			{#<li><a href="patterns/{{ patternPath }}" class="sg-pop  {&#123;&#35; patternState }}sg-pattern-state {{ patternState }}{{/ patternState }}" data-patternpartial="{{ patternPartial }}">{{ patternName }}</a></li>#}
+			{#{{/ navSubItems }}#}
+			{#</ol></li>#}
+		{#{{/ navItems }}#}
+		{#{&#123;&#35; patternItems }}#}
+			{#<li><a href="patterns/{{ patternPath }}" class="sg-pop {&#123;&#35; patternState }}sg-pattern-state {{ patternState }}{{/ patternState }}"" data-patternpartial="{{ patternPartial }}">{{ patternName }}</a></li>#}
+		{#{{/ patternItems }}#}
+		{#</ol></li>#}
+	{#{{/ buckets }}#}
+	{#<li><a href="styleguide/html/styleguide.html" class="sg-pop" data-patternpartial="all">All</a></li>#}
+{#</ol>#}
