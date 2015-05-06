@@ -6,7 +6,11 @@
  *
  * patternlabWrapper({
  *   dest: './app/public',
- *   patternPaths: {"atoms":{"colors":"00-atoms-01-global-00-colors","redirect":"00-atoms-01-global-01-redirect",...}}
+ *   patternPaths: {"category":
+ *      {"subcategory": {"patternName1": "00-atoms-01-global-00-colors"},
+ *      {"subcategory2": {"patternName2": "00-atoms-01-global-01-redirect"},
+ *      ...
+ *   },
  *   patternNavHTML: '<ul class="patterns-menu sg-nav">
     <li class="sg-nav-"><a class="sg-acc-handle">base</a>
         <ul class="sg-acc-panel">
@@ -18,6 +22,16 @@
     </ul>'
  * });
  *
+ * OR
+ *
+ * patternlabWrapper({
+ *   dest: './app/public',
+ *   patternPaths: {"category":
+ *      {"subcategory": {"patternName1": "00-atoms-01-global-00-colors"},
+ *      {"subcategory2": {"patternName2": "00-atoms-01-global-01-redirect"},
+ *      ...
+ *   }
+ * });
  */
 
 /**
@@ -43,19 +57,30 @@ var optionsDefault = {
   patternNavTemplate: './_patternlab-files/partials/patternNav.twig',
   ishControlsHTML: '',
   ishControlsTemplate: './_patternlab-files/partials/ishControls.twig',
-  patternPaths: {base: []},
+  patternPaths: {
+    "category": {
+      "subcategory": {
+        "patternName1": "00-atoms-01-global-00-colors"
+      }
+      ,
+      "subcategory2": {
+        "patternName2": "00-atoms-01-global-01-redirect"
+      }
+    }
+  },
   src: './_patternlab-files'
 };
 
 function patternlabWrapper(options) {
   options = options || {};
-  options.patternNavHTML = options.patternNavHTML || Twig.twig({data: fs.readFileSync(optionsDefault.patternNavTemplate, 'utf8')}).render();
-  options.ishControlsHTML = options.ishControlsHTML || Twig.twig({data: fs.readFileSync(optionsDefault.ishControlsTemplate, 'utf8')}).render();
+
   options.patternPaths = options.patternPaths || optionsDefault.patternPaths;
   options.dest = options.dest || optionsDefault.dest;
   options.src = options.src || optionsDefault.src;
+  options.ishControlsHTML = options.ishControlsHTML || Twig.twig({data: fs.readFileSync(optionsDefault.ishControlsTemplate, 'utf8')}).render();
+  options.patternNavHTML = options.patternNavHTML || Twig.twig({data: fs.readFileSync(optionsDefault.patternNavTemplate, 'utf8')}).render({categories: options.patternPaths});
 
-  var indexTemplate = Twig.twig({data: fs.readFileSync('./_patternlab-files/index.twig', 'utf8')});
+  var indexTemplate = Twig.twig({data: fs.readFileSync(options.src + '/index.twig', 'utf8')});
 
   fs.writeFile(options.dest + '/index.html', indexTemplate.render({
       patternNav: options.patternNavHTML,
@@ -82,4 +107,3 @@ function patternlabWrapper(options) {
 }
 
 module.exports = patternlabWrapper;
-
