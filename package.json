@@ -1,0 +1,10 @@
+{
+  "name": "patternlab-wrapper",
+  "version": "0.0.1",
+  "description": "",
+  "dependencies": {},
+  "devDependencies": {
+    "fs-extra": "^0.18.2",
+    "twig": "^0.8.2"
+  }
+}
