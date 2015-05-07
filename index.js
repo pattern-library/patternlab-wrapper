@@ -52,11 +52,11 @@ var patternlabFiles = [
  * @type {{dest: string, patternNav: string, patternNavTemplate: string, ishControls: string, ishControlsTemplate: string, patternPaths: {base: Array}, src: string}}
  */
 var optionsDefault = {
-  dest: './public',
+  dest: __dirname + '/public',
   patternNavHTML: '',
-  patternNavTemplate: './_patternlab-files/partials/patternNav.twig',
+  patternNavTemplate: __dirname + '/_patternlab-files/partials/patternNav.twig',
   ishControlsHTML: '',
-  ishControlsTemplate: './_patternlab-files/partials/ishControls.twig',
+  ishControlsTemplate: __dirname + '/_patternlab-files/partials/ishControls.twig',
   patternPaths: {
     "category": {
       "subcategory": {
@@ -68,7 +68,7 @@ var optionsDefault = {
       }
     }
   },
-  src: './_patternlab-files'
+  src: __dirname + '/_patternlab-files'
 };
 
 function patternlabWrapper(options) {
